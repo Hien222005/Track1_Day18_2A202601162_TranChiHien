@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option A — AI Notes tự tổng hợp</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <a href="index.html" class="btn-back">← Quay về trang chính</a>
+        <span class="option-badge option-a">🤖 Option A — AI tự tổng hợp (Act)</span>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="container">
+
+        <!-- ========== STATE 1: Lecture View ========== -->
+        <div id="state-lecture" class="state active">
+          <div class="info-banner info-blue">
+            <span class="info-banner-icon">💡</span>
+            <div>
+              <strong>AI sẽ tự động tổng hợp</strong> các đoạn bạn highlight thành một bản ghi chú có cấu trúc khi bài
+              kết thúc.
+              AI có thể diễn đạt khác ý bạn — bạn luôn có thể chỉnh sửa lại sau.
+            </div>
+          </div>
+
+          <!-- Video Player -->
+          <div class="video-player">
+            <div class="video-slide-area" id="slide-area">
+              <span class="slide-label" id="slide-label">Slide 1 / 4</span>
+              <div id="slide-1" class="slide-view">
+                <h2 class="slide-title">Bài 3: Phân tích Cấu trúc Chi phí Doanh nghiệp</h2>
+                <div class="slide-content">
+                  <p>📚 Nội dung bài học hôm nay:</p>
+                  <p style="margin-top:12px">• Phân biệt <strong>chi phí cố định</strong> và <strong>chi phí biến
+                      đổi</strong></p>
+                  <p>• Tính <strong>điểm hoà vốn (Break-even Point)</strong></p>
+                  <p>• Ứng dụng <strong>biên lợi nhuận gộp</strong> trong quyết định kinh doanh</p>
+                </div>
+              </div>
+              <div id="slide-2" class="slide-view" style="display:none">
+                <h2 class="slide-title">Chi phí Cố định vs Chi phí Biến đổi</h2>
+                <div class="slide-content">
+                  <p><strong>Chi phí cố định (Fixed Costs):</strong> Không thay đổi theo sản lượng</p>
+                  <p style="margin-top:8px">→ Tiền thuê mặt bằng, lương nhân viên cố định, khấu hao thiết bị</p>
+                  <p style="margin-top:16px"><strong>Chi phí biến đổi (Variable Costs):</strong> Tăng/giảm theo sản
+                    lượng</p>
+                  <p style="margin-top:8px">→ Nguyên vật liệu, hoa hồng bán hàng, chi phí vận chuyển</p>
+                  <p style="margin-top:16px; color: #60A5FA;">⚠️ Sai lầm phổ biến: Nhầm lẫn giữa chi phí "nhỏ" với chi
+                    phí "biến đổi"</p>
+                </div>
+              </div>
+              <div id="slide-3" class="slide-view" style="display:none">
+                <h2 class="slide-title">Điểm Hoà vốn (Break-even Point)</h2>
+                <div class="slide-content">
+                  <p>Điểm tại đó tổng doanh thu bằng tổng chi phí → Lợi nhuận = 0</p>
+                  <div class="formula">
+                    BEP = Chi phí cố định ÷ (Giá bán − Chi phí biến đổi/đơn vị)
+                  </div>
+                  <p style="margin-top:12px"><strong>Ý nghĩa:</strong> Doanh nghiệp cần bán ít nhất bao nhiêu đơn vị để
+                    không lỗ</p>
+                  <p style="margin-top:8px; color: #60A5FA;">→ BEP thấp = rủi ro thấp hơn khi mới khởi nghiệp</p>
+                </div>
+              </div>
+              <div id="slide-4" class="slide-view" style="display:none">
+                <h2 class="slide-title">Case Study: Quán Cafe Startup</h2>
+                <div class="slide-content">
+                  <p><strong>Dữ kiện:</strong></p>
+                  <p>• Thuê mặt bằng + lương: <strong>30 triệu/tháng</strong> (cố định)</p>
+                  <p>• Chi phí 1 ly cafe: <strong>15.000đ</strong> (biến đổi)</p>
+                  <p>• Giá bán 1 ly: <strong>45.000đ</strong></p>
+                  <div class="formula">
+                    BEP = 30.000.000 ÷ (45.000 − 15.000) = 1.000 ly/tháng
+                  </div>
+                  <p style="margin-top:12px; color: #60A5FA;">→ Cần bán ít nhất 1.000 ly/tháng (~33 ly/ngày) mới hoà vốn
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="video-controls">
+              <button class="btn-play" id="btn-play" onclick="nextSlide()">▶</button>
+              <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+              <span class="video-time" id="video-time">0:00 / 18:00</span>
+            </div>
+          </div>
+
+          <!-- Highlight Toolbar -->
+          <div class="highlight-toolbar">
+            <div>
+              <span class="highlight-toolbar-label">Đánh dấu nhanh khi nghe giảng:</span>
+            </div>
+            <div class="highlight-actions">
+              <button class="btn-highlight" id="btn-hl-important" onclick="addHighlight('important')">
+                ⭐ Quan trọng
+              </button>
+              <button class="btn-highlight" id="btn-hl-unclear" onclick="addHighlight('unclear')">
+                ❓ Chưa hiểu
+              </button>
+              <span class="highlight-count" id="hl-count">0</span>
+            </div>
+          </div>
+
+          <!-- End Lesson Button -->
+          <button class="btn btn-primary btn-lg btn-block" onclick="endLesson()" id="btn-end-lesson" disabled>
+            Kết thúc bài học → AI tổng hợp ghi chú
+          </button>
+          <p class="text-center text-muted text-sm mt-16">Hãy xem qua các slide và đánh dấu trước khi kết thúc bài</p>
+        </div>
+
+        <!-- ========== STATE 2: AI Loading ========== -->
+        <div id="state-loading" class="state">
+          <div class="card card-elevated" style="margin-top:40px">
+            <div class="loading-overlay">
+              <div class="loading-spinner"></div>
+              <div class="loading-text">AI đang tổng hợp ghi chú...</div>
+              <div class="loading-subtext">Phân tích 4 slides và các đánh dấu của bạn</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== STATE 3: Smart Note Result ========== -->
+        <div id="state-result" class="state">
+          <div class="info-banner info-green animate-in">
+            <span class="info-banner-icon">✅</span>
+            <div><strong>AI đã tạo xong bản ghi chú.</strong> Bạn có thể chỉnh sửa, tạo lại hoặc xem lại các đánh dấu
+              gốc bên dưới.</div>
+          </div>
+
+          <div class="smart-note animate-in delay-1">
+            <div class="smart-note-header">
+              <span class="smart-note-title">📝 Smart Note — Bài 3: Cấu trúc Chi phí</span>
+              <div class="btn-group">
+                <button class="btn btn-sm btn-secondary"
+                  onclick="alert('Bạn đang chỉnh sửa bản ghi chú. Trong prototype thật, bạn có thể sửa trực tiếp từng dòng.')">✏️
+                  Chỉnh sửa</button>
+                <button class="btn btn-sm btn-secondary" onclick="regenerate()">🔄 Tạo lại</button>
+              </div>
+            </div>
+            <div class="smart-note-body">
+              <!-- Section 1 -->
+              <div class="note-section">
+                <div class="note-section-title">📌 1. Chi phí Cố định vs Biến đổi</div>
+                <div class="note-item">
+                  <strong>Chi phí cố định</strong> không thay đổi theo sản lượng: tiền thuê, lương cố định, khấu hao
+                  thiết bị.
+                  <span class="source-tag">📍 04:15</span>
+                </div>
+                <div class="note-item">
+                  <strong>Chi phí biến đổi</strong> tăng/giảm theo sản lượng: nguyên vật liệu, hoa hồng, vận chuyển.
+                  <span class="source-tag">📍 05:30</span>
+                </div>
+                <div class="note-item">
+                  Lưu ý: Không nên nhầm chi phí "nhỏ" với chi phí "biến đổi" — tiêu chí phân loại là mối quan hệ với sản
+                  lượng.
+                  <span class="source-tag">📍 06:45</span>
+                  <span class="ai-tag">⚠️ AI diễn giải</span>
+                </div>
+              </div>
+
+              <!-- Section 2 -->
+              <div class="note-section">
+                <div class="note-section-title">📌 2. Điểm hoà vốn (Break-even Point)</div>
+                <div class="note-item">
+                  Điểm tại đó tổng doanh thu = tổng chi phí, lợi nhuận = 0.
+                  <span class="source-tag">📍 09:00</span>
+                </div>
+                <div class="note-item">
+                  Công thức: <strong>BEP = Chi phí cố định ÷ (Giá bán − Chi phí biến đổi/đơn vị)</strong>
+                  <span class="source-tag">📍 10:20</span>
+                </div>
+                <div class="note-item">
+                  BEP thấp đồng nghĩa rủi ro thấp hơn cho startup giai đoạn đầu.
+                  <span class="ai-tag">⚠️ AI diễn giải</span>
+                </div>
+              </div>
+
+              <!-- Section 3 -->
+              <div class="note-section">
+                <div class="note-section-title">📌 3. Case Study: Quán Cafe Startup</div>
+                <div class="note-item">
+                  Chi phí cố định: 30 triệu/tháng. Chi phí biến đổi: 15.000đ/ly. Giá bán: 45.000đ/ly.
+                  <span class="source-tag">📍 13:00</span>
+                </div>
+                <div class="note-item">
+                  BEP = 30.000.000 ÷ (45.000 − 15.000) = <strong>1.000 ly/tháng (~33 ly/ngày)</strong>.
+                  <span class="source-tag">📍 14:30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- View Raw Highlights -->
+          <details class="mt-24 animate-in delay-2" style="cursor:pointer">
+            <summary style="font-size:14px; font-weight:600; color:var(--ink-secondary); padding:12px 0;">
+              📋 Xem lại các đánh dấu gốc của bạn (highlight thô)
+            </summary>
+            <div class="card mt-16" style="background: var(--bg);">
+              <div id="raw-highlights" style="font-size:13px; color:var(--ink-secondary); line-height:1.8;">
+                <p style="color:var(--ink-muted); font-style:italic;">Các đánh dấu bạn đã bấm trong quá trình xem bài
+                  giảng sẽ hiển thị ở đây.</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- Actions -->
+          <div class="btn-group mt-32 animate-in delay-3" style="justify-content:center;">
+            <a href="index.html" class="btn btn-primary btn-lg">← Quay về chọn phương án khác</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="proto-footer">
+      <div class="container">
+        <p>Option A — AI tự tổng hợp (Act) · Team Moi · Track 1 Day 18</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // --- Slide Navigation ---
+    let currentSlide = 1;
+    const totalSlides = 4;
+    let highlightCount = 0;
+    const highlights = [];
+    const slideTimestamps = ['0:00', '4:15', '9:00', '13:00'];
+    const slideTitles = [
+      'Giới thiệu nội dung bài học',
+      'Chi phí Cố định vs Biến đổi',
+      'Điểm hoà vốn (Break-even Point)',
+      'Case Study: Quán Cafe Startup'
+    ];
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        document.getElementById('slide-' + currentSlide).style.display = 'none';
+        currentSlide++;
+        document.getElementById('slide-' + currentSlide).style.display = '';
+        document.getElementById('slide-label').textContent = 'Slide ' + currentSlide + ' / ' + totalSlides;
+        document.getElementById('progress-fill').style.width = ((currentSlide / totalSlides) * 100) + '%';
+
+        const times = ['4:15', '9:00', '13:00', '18:00'];
+        document.getElementById('video-time').textContent = times[currentSlide - 1] + ' / 18:00';
+
+        if (currentSlide === totalSlides) {
+          document.getElementById('btn-play').textContent = '⏹';
+          document.getElementById('btn-end-lesson').disabled = false;
+          document.getElementById('btn-end-lesson').style.animation = 'fadeInUp 0.3s ease';
+        }
+      }
+    }
+
+    // --- Highlight ---
+    function addHighlight(type) {
+      highlightCount++;
+      document.getElementById('hl-count').textContent = highlightCount;
+
+      const label = type === 'important' ? '⭐ Quan trọng' : '❓ Chưa hiểu';
+      const btn = type === 'important' ? document.getElementById('btn-hl-important') : document.getElementById('btn-hl-unclear');
+
+      btn.classList.add('active');
+      setTimeout(() => btn.classList.remove('active'), 600);
+
+      highlights.push({
+        type: label,
+        slide: currentSlide,
+        title: slideTitles[currentSlide - 1],
+        time: slideTimestamps[currentSlide - 1]
+      });
+
+      if (currentSlide === totalSlides) {
+        document.getElementById('btn-end-lesson').disabled = false;
+      }
+    }
+
+    // --- End Lesson ---
+    function endLesson() {
+      document.getElementById('state-lecture').classList.remove('active');
+      document.getElementById('state-loading').classList.add('active');
+
+      // Populate raw highlights
+      if (highlights.length > 0) {
+        let html = '';
+        highlights.forEach((h, i) => {
+          html += '<p>' + (i + 1) + '. ' + h.type + ' — Slide ' + h.slide + ': ' + h.title + ' <span class="source-tag">📍 ' + h.time + '</span></p>';
+        });
+        document.getElementById('raw-highlights').innerHTML = html;
+      }
+
+      // Simulate AI processing
+      setTimeout(() => {
+        document.getElementById('state-loading').classList.remove('active');
+        document.getElementById('state-result').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 2500);
+    }
+
+    // --- Regenerate ---
+    function regenerate() {
+      document.getElementById('state-result').classList.remove('active');
+      document.getElementById('state-loading').classList.add('active');
+      setTimeout(() => {
+        document.getElementById('state-loading').classList.remove('active');
+        document.getElementById('state-result').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 2000);
+    }
+  </script>
+</body>
+
+</html>

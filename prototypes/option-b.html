@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option B — AI gợi ý, bạn duyệt</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <a href="index.html" class="btn-back">← Quay về trang chính</a>
+        <span class="option-badge option-b">🤝 Option B — AI gợi ý, bạn duyệt (Ask)</span>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="container">
+
+        <!-- ========== STATE 1: Lecture View ========== -->
+        <div id="state-lecture" class="state active">
+          <div class="info-banner info-blue">
+            <span class="info-banner-icon">💡</span>
+            <div>
+              <strong>Khi bài kết thúc, AI sẽ đề xuất 3 ý chính</strong> dựa trên nội dung bạn đã xem.
+              Bạn có quyền chấp nhận, chỉnh sửa, xoá hoặc thêm ý riêng — không có gì được lưu nếu bạn chưa duyệt.
+            </div>
+          </div>
+
+          <!-- Video Player (same content as Option A) -->
+          <div class="video-player">
+            <div class="video-slide-area" id="slide-area">
+              <span class="slide-label" id="slide-label">Slide 1 / 4</span>
+              <div id="slide-1" class="slide-view">
+                <h2 class="slide-title">Bài 3: Phân tích Cấu trúc Chi phí Doanh nghiệp</h2>
+                <div class="slide-content">
+                  <p>📚 Nội dung bài học hôm nay:</p>
+                  <p style="margin-top:12px">• Phân biệt <strong>chi phí cố định</strong> và <strong>chi phí biến
+                      đổi</strong></p>
+                  <p>• Tính <strong>điểm hoà vốn (Break-even Point)</strong></p>
+                  <p>• Ứng dụng <strong>biên lợi nhuận gộp</strong> trong quyết định kinh doanh</p>
+                </div>
+              </div>
+              <div id="slide-2" class="slide-view" style="display:none">
+                <h2 class="slide-title">Chi phí Cố định vs Chi phí Biến đổi</h2>
+                <div class="slide-content">
+                  <p><strong>Chi phí cố định (Fixed Costs):</strong> Không thay đổi theo sản lượng</p>
+                  <p style="margin-top:8px">→ Tiền thuê mặt bằng, lương nhân viên cố định, khấu hao thiết bị</p>
+                  <p style="margin-top:16px"><strong>Chi phí biến đổi (Variable Costs):</strong> Tăng/giảm theo sản
+                    lượng</p>
+                  <p style="margin-top:8px">→ Nguyên vật liệu, hoa hồng bán hàng, chi phí vận chuyển</p>
+                  <p style="margin-top:16px; color: #60A5FA;">⚠️ Sai lầm phổ biến: Nhầm lẫn giữa chi phí "nhỏ" với chi
+                    phí "biến đổi"</p>
+                </div>
+              </div>
+              <div id="slide-3" class="slide-view" style="display:none">
+                <h2 class="slide-title">Điểm Hoà vốn (Break-even Point)</h2>
+                <div class="slide-content">
+                  <p>Điểm tại đó tổng doanh thu bằng tổng chi phí → Lợi nhuận = 0</p>
+                  <div class="formula">
+                    BEP = Chi phí cố định ÷ (Giá bán − Chi phí biến đổi/đơn vị)
+                  </div>
+                  <p style="margin-top:12px"><strong>Ý nghĩa:</strong> Doanh nghiệp cần bán ít nhất bao nhiêu đơn vị để
+                    không lỗ</p>
+                  <p style="margin-top:8px; color: #60A5FA;">→ BEP thấp = rủi ro thấp hơn khi mới khởi nghiệp</p>
+                </div>
+              </div>
+              <div id="slide-4" class="slide-view" style="display:none">
+                <h2 class="slide-title">Case Study: Quán Cafe Startup</h2>
+                <div class="slide-content">
+                  <p><strong>Dữ kiện:</strong></p>
+                  <p>• Thuê mặt bằng + lương: <strong>30 triệu/tháng</strong> (cố định)</p>
+                  <p>• Chi phí 1 ly cafe: <strong>15.000đ</strong> (biến đổi)</p>
+                  <p>• Giá bán 1 ly: <strong>45.000đ</strong></p>
+                  <div class="formula">
+                    BEP = 30.000.000 ÷ (45.000 − 15.000) = 1.000 ly/tháng
+                  </div>
+                  <p style="margin-top:12px; color: #60A5FA;">→ Cần bán ít nhất 1.000 ly/tháng (~33 ly/ngày) mới hoà vốn
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="video-controls">
+              <button class="btn-play" id="btn-play" onclick="nextSlide()">▶</button>
+              <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+              <span class="video-time" id="video-time">0:00 / 18:00</span>
+            </div>
+          </div>
+
+          <!-- Highlight Toolbar -->
+          <div class="highlight-toolbar">
+            <div>
+              <span class="highlight-toolbar-label">Đánh dấu nhanh khi nghe giảng:</span>
+            </div>
+            <div class="highlight-actions">
+              <button class="btn-highlight" onclick="addHighlight()">⭐ Quan trọng</button>
+              <button class="btn-highlight" onclick="addHighlight()">❓ Chưa hiểu</button>
+              <span class="highlight-count" id="hl-count">0</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block" onclick="endLesson()" id="btn-end-lesson" disabled>
+            Kết thúc bài học → Xem gợi ý từ AI
+          </button>
+          <p class="text-center text-muted text-sm mt-16">Hãy xem qua các slide trước khi kết thúc bài</p>
+        </div>
+
+        <!-- ========== STATE 2: AI Loading ========== -->
+        <div id="state-loading" class="state">
+          <div class="card card-elevated" style="margin-top:40px">
+            <div class="loading-overlay">
+              <div class="loading-spinner"></div>
+              <div class="loading-text">AI đang phân tích bài giảng...</div>
+              <div class="loading-subtext">Tìm 3 điểm cốt lõi từ nội dung bạn vừa xem</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== STATE 3: Suggestion Cards ========== -->
+        <div id="state-suggestions" class="state">
+          <div class="info-banner info-blue animate-in">
+            <span class="info-banner-icon">🤝</span>
+            <div>
+              <strong>AI đề xuất 3 ý chính bên dưới.</strong> Hãy duyệt từng thẻ: <strong>Chấp nhận</strong>,
+              <strong>Chỉnh sửa</strong> hoặc <strong>Xoá</strong>.
+              Bạn cũng có thể thêm ghi chú riêng hoặc bỏ qua toàn bộ gợi ý.
+            </div>
+          </div>
+
+          <div class="suggestion-panel">
+            <div class="suggestion-panel-title">💡 Gợi ý 3 điểm cốt lõi <span class="text-muted text-sm"
+                style="font-weight:400; margin-left:8px;">(Gợi ý tham khảo — chưa được lưu)</span></div>
+
+            <!-- Card 1 -->
+            <div class="suggestion-card animate-in delay-1" id="card-1">
+              <span class="suggestion-card-number">1</span>
+              <div class="suggestion-card-content">
+                <strong>Chi phí cố định vs biến đổi:</strong> Chi phí cố định (thuê mặt bằng, lương) không đổi theo sản
+                lượng; chi phí biến đổi (nguyên liệu, vận chuyển) tăng giảm theo số lượng sản phẩm. Tiêu chí phân loại
+                là mối quan hệ với sản lượng, không phải kích thước khoản chi.
+              </div>
+              <div class="suggestion-card-source">📍 Dựa vào đoạn bạn xem tại <strong>Slide 2 [04:15 – 06:45]</strong>
+              </div>
+              <div class="suggestion-card-actions">
+                <button class="btn btn-sm btn-success" onclick="acceptCard(1)">✓ Chấp nhận</button>
+                <button class="btn btn-sm btn-secondary" onclick="editCard(1)">✏️ Chỉnh sửa</button>
+                <button class="btn btn-sm btn-danger" onclick="rejectCard(1)">✕ Xoá</button>
+              </div>
+              <div id="edit-area-1" style="display:none; margin-top:12px;">
+                <textarea class="edit-area"
+                  id="edit-text-1">Chi phí cố định vs biến đổi: Chi phí cố định (thuê mặt bằng, lương) không đổi theo sản lượng; chi phí biến đổi (nguyên liệu, vận chuyển) tăng giảm theo số lượng sản phẩm.</textarea>
+                <div class="btn-group mt-12">
+                  <button class="btn btn-sm btn-success" onclick="saveEdit(1)">💾 Lưu chỉnh sửa</button>
+                  <button class="btn btn-sm btn-secondary" onclick="cancelEdit(1)">Huỷ</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="suggestion-card animate-in delay-2" id="card-2">
+              <span class="suggestion-card-number">2</span>
+              <div class="suggestion-card-content">
+                <strong>Công thức điểm hoà vốn:</strong> BEP = Chi phí cố định ÷ (Giá bán − Chi phí biến đổi/đơn vị).
+                BEP cho biết số lượng tối thiểu cần bán để không lỗ — BEP càng thấp, rủi ro khởi nghiệp càng nhỏ.
+              </div>
+              <div class="suggestion-card-source">📍 Dựa vào đoạn bạn xem tại <strong>Slide 3 [09:00 – 11:00]</strong>
+              </div>
+              <div class="suggestion-card-actions">
+                <button class="btn btn-sm btn-success" onclick="acceptCard(2)">✓ Chấp nhận</button>
+                <button class="btn btn-sm btn-secondary" onclick="editCard(2)">✏️ Chỉnh sửa</button>
+                <button class="btn btn-sm btn-danger" onclick="rejectCard(2)">✕ Xoá</button>
+              </div>
+              <div id="edit-area-2" style="display:none; margin-top:12px;">
+                <textarea class="edit-area"
+                  id="edit-text-2">Công thức điểm hoà vốn: BEP = Chi phí cố định ÷ (Giá bán − Chi phí biến đổi/đơn vị). BEP cho biết số lượng tối thiểu cần bán để không lỗ.</textarea>
+                <div class="btn-group mt-12">
+                  <button class="btn btn-sm btn-success" onclick="saveEdit(2)">💾 Lưu chỉnh sửa</button>
+                  <button class="btn btn-sm btn-secondary" onclick="cancelEdit(2)">Huỷ</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="suggestion-card animate-in delay-3" id="card-3">
+              <span class="suggestion-card-number">3</span>
+              <div class="suggestion-card-content">
+                <strong>Ứng dụng thực tế (Case Cafe):</strong> Với chi phí cố định 30 triệu/tháng, giá bán 45.000đ/ly và
+                chi phí biến đổi 15.000đ/ly → cần bán tối thiểu 1.000 ly/tháng (~33 ly/ngày) để hoà vốn.
+              </div>
+              <div class="suggestion-card-source">📍 Dựa vào đoạn bạn xem tại <strong>Slide 4 [13:00 – 16:00]</strong>
+              </div>
+              <div class="suggestion-card-actions">
+                <button class="btn btn-sm btn-success" onclick="acceptCard(3)">✓ Chấp nhận</button>
+                <button class="btn btn-sm btn-secondary" onclick="editCard(3)">✏️ Chỉnh sửa</button>
+                <button class="btn btn-sm btn-danger" onclick="rejectCard(3)">✕ Xoá</button>
+              </div>
+              <div id="edit-area-3" style="display:none; margin-top:12px;">
+                <textarea class="edit-area"
+                  id="edit-text-3">Ứng dụng thực tế (Case Cafe): Với chi phí cố định 30 triệu/tháng, giá bán 45.000đ/ly và chi phí biến đổi 15.000đ/ly → cần bán tối thiểu 1.000 ly/tháng để hoà vốn.</textarea>
+                <div class="btn-group mt-12">
+                  <button class="btn btn-sm btn-success" onclick="saveEdit(3)">💾 Lưu chỉnh sửa</button>
+                  <button class="btn btn-sm btn-secondary" onclick="cancelEdit(3)">Huỷ</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Add own note -->
+            <div class="user-note-input animate-in delay-4">
+              <input type="text" id="user-note" placeholder="✏️ Thêm ghi chú riêng của bạn...">
+              <button class="btn btn-sm btn-primary" onclick="addUserNote()">Thêm</button>
+            </div>
+
+            <div id="user-notes-list" class="mt-16"></div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="btn-group mt-32" style="justify-content:center; flex-wrap: wrap;">
+            <button class="btn btn-success btn-lg" onclick="saveAll()">💾 Lưu vào sổ tay cá nhân</button>
+            <button class="btn btn-secondary btn-lg" onclick="skipAll()">Bỏ qua tất cả gợi ý →</button>
+          </div>
+        </div>
+
+        <!-- ========== STATE 4: Success ========== -->
+        <div id="state-success" class="state">
+          <div class="card card-elevated mt-32">
+            <div class="success-state">
+              <div class="success-icon">✅</div>
+              <h2 class="success-title" id="success-title">Đã lưu vào sổ tay cá nhân!</h2>
+              <p class="success-desc" id="success-desc">Ghi chú đã được lưu. Bạn có thể mở lại bất cứ lúc nào từ mục
+                "Ghi chú của tôi".</p>
+              <a href="index.html" class="btn btn-primary btn-lg">← Quay về chọn phương án khác</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== STATE 5: Blank Note (Skip All) ========== -->
+        <div id="state-blank" class="state">
+          <div class="info-banner info-orange animate-in">
+            <span class="info-banner-icon">📝</span>
+            <div><strong>Bạn đã bỏ qua gợi ý AI.</strong> Đây là trang ghi chú trắng để bạn tự viết.</div>
+          </div>
+          <div class="card card-elevated animate-in delay-1">
+            <textarea class="edit-area" style="min-height:200px;"
+              placeholder="Viết ghi chú của bạn ở đây..."></textarea>
+            <div class="btn-group mt-16">
+              <button class="btn btn-success" onclick="saveBlank()">💾 Lưu ghi chú</button>
+              <a href="index.html" class="btn btn-secondary">← Quay về trang chính</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="proto-footer">
+      <div class="container">
+        <p>Option B — AI gợi ý, bạn duyệt (Ask) · Team Moi · Track 1 Day 18</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // --- Slide Navigation ---
+    let currentSlide = 1;
+    const totalSlides = 4;
+    let highlightCount = 0;
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        document.getElementById('slide-' + currentSlide).style.display = 'none';
+        currentSlide++;
+        document.getElementById('slide-' + currentSlide).style.display = '';
+        document.getElementById('slide-label').textContent = 'Slide ' + currentSlide + ' / ' + totalSlides;
+        document.getElementById('progress-fill').style.width = ((currentSlide / totalSlides) * 100) + '%';
+        const times = ['4:15', '9:00', '13:00', '18:00'];
+        document.getElementById('video-time').textContent = times[currentSlide - 1] + ' / 18:00';
+        if (currentSlide === totalSlides) {
+          document.getElementById('btn-play').textContent = '⏹';
+          document.getElementById('btn-end-lesson').disabled = false;
+        }
+      }
+    }
+
+    function addHighlight() {
+      highlightCount++;
+      document.getElementById('hl-count').textContent = highlightCount;
+      if (currentSlide === totalSlides) {
+        document.getElementById('btn-end-lesson').disabled = false;
+      }
+    }
+
+    // --- State Transitions ---
+    function showState(id) {
+      document.querySelectorAll('.state').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function endLesson() {
+      showState('state-loading');
+      setTimeout(() => showState('state-suggestions'), 2200);
+    }
+
+    // --- Card Actions ---
+    function acceptCard(n) {
+      const card = document.getElementById('card-' + n);
+      card.classList.add('accepted');
+      card.querySelector('.suggestion-card-actions').innerHTML = '<span style="color:var(--success); font-weight:600; font-size:13px;">✓ Đã chấp nhận</span>';
+    }
+
+    function rejectCard(n) {
+      const card = document.getElementById('card-' + n);
+      card.classList.add('rejected');
+      card.querySelector('.suggestion-card-actions').innerHTML = '<span style="color:var(--ink-muted); font-weight:600; font-size:13px;">✕ Đã xoá</span>';
+    }
+
+    function editCard(n) {
+      document.getElementById('edit-area-' + n).style.display = 'block';
+    }
+
+    function cancelEdit(n) {
+      document.getElementById('edit-area-' + n).style.display = 'none';
+    }
+
+    function saveEdit(n) {
+      const newText = document.getElementById('edit-text-' + n).value;
+      const card = document.getElementById('card-' + n);
+      card.querySelector('.suggestion-card-content').innerHTML = newText;
+      card.classList.add('accepted');
+      card.querySelector('.suggestion-card-actions').innerHTML = '<span style="color:var(--success); font-weight:600; font-size:13px;">✓ Đã chỉnh sửa và chấp nhận</span>';
+      document.getElementById('edit-area-' + n).style.display = 'none';
+    }
+
+    // --- User Note ---
+    let userNoteCount = 0;
+    function addUserNote() {
+      const input = document.getElementById('user-note');
+      const text = input.value.trim();
+      if (!text) return;
+      userNoteCount++;
+      const list = document.getElementById('user-notes-list');
+      const div = document.createElement('div');
+      div.className = 'suggestion-card accepted animate-in';
+      div.innerHTML = '<span class="suggestion-card-number" style="background:var(--success);">✓</span>' +
+        '<div class="suggestion-card-content">' + text + '</div>' +
+        '<div class="suggestion-card-source">📝 Ghi chú cá nhân của bạn</div>';
+      list.appendChild(div);
+      input.value = '';
+    }
+
+    // --- Save / Skip ---
+    function saveAll() {
+      document.getElementById('success-title').textContent = 'Đã lưu vào sổ tay cá nhân!';
+      document.getElementById('success-desc').textContent = 'Các ý chính bạn đã duyệt và ghi chú riêng đã được lưu.';
+      showState('state-success');
+    }
+
+    function skipAll() {
+      showState('state-blank');
+    }
+
+    function saveBlank() {
+      document.getElementById('success-title').textContent = 'Ghi chú đã được lưu!';
+      document.getElementById('success-desc').textContent = 'Ghi chú cá nhân của bạn đã được lưu vào sổ tay.';
+      showState('state-success');
+    }
+  </script>
+</body>
+
+</html>

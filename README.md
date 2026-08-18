@@ -45,9 +45,11 @@ _(Human–AI Design pass ở Chặng 3 và link prototype ở Chặng 4 chưa th
 
 | Option | Solution mechanism (tóm tắt) | User làm gì? | AI làm gì? | Link prototype |
 |---|---|---|---|---|
-| A: AI Notes tự tổng hợp | Highlight/đánh dấu trong lúc học → AI tự gộp thành bản ghi chú có cấu trúc khi bài kết thúc | Highlight, đánh dấu, review & sửa bản ghi chú AI tạo | Act: tự tổng hợp toàn bộ | _(điền sau Chặng 4)_ |
-| B: AI gợi ý, user xác nhận | AI đề xuất "3 điều quan trọng nhất bài này" khi bài kết thúc, user xác nhận/sửa/bổ sung trước khi lưu | Highlight, đánh dấu, chọn giữ/sửa/thêm gợi ý AI | Ask: đề xuất, chờ xác nhận | _(điền sau Chặng 4)_ |
-| C: Bookmark nhanh, không AI | User tự bấm bookmark tại đoạn đang nghe, hệ thống lưu vị trí + preview ngắn | Bấm bookmark tại chỗ; tự lướt lại khi ôn | Don't act: không tham gia | _(điền sau Chặng 4)_ |
+| A: AI Notes tự tổng hợp | Highlight/đánh dấu trong lúc học → AI tự gộp thành bản ghi chú có cấu trúc khi bài kết thúc | Highlight, đánh dấu, review & sửa bản ghi chú AI tạo | Act: tự tổng hợp toàn bộ | [Option A Live](https://day18-teammoi-optiona-b-c.netlify.app/option-a.html) |
+| B: AI gợi ý, user xác nhận | AI đề xuất "3 điều quan trọng nhất bài này" khi bài kết thúc, user xác nhận/sửa/bổ sung trước khi lưu | Highlight, đánh dấu, chọn giữ/sửa/thêm gợi ý AI | Ask: đề xuất, chờ xác nhận | [Option B Live](https://day18-teammoi-optiona-b-c.netlify.app/option-b.html) |
+| C: Bookmark nhanh, không AI | User tự bấm bookmark tại đoạn đang nghe, hệ thống lưu vị trí + preview ngắn | Bấm bookmark tại chỗ; tự lướt lại khi ôn | Don't act: không tham gia | [Option C Live](https://day18-teammoi-optiona-b-c.netlify.app/option-c.html) |
+
+> **Landing Page chung:** [https://day18-teammoi-optiona-b-c.netlify.app/](https://day18-teammoi-optiona-b-c.netlify.app/) (Xem chi tiết tại [prototype-link.md](prototype-link.md))
 
 ---
 

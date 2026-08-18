@@ -100,9 +100,9 @@ User chủ động hoàn toàn  ───►  User + AI đồng sáng tạo   �
 
 | Tiêu chuẩn Gate | Trạng thái | Đánh giá thực tế của nhóm |
 |---|:---:|---|
-| **GATE 1 — Evidence continuity** | ✅ ĐẠT | Hypothesis Problem bám sát 3 Practice Notes Day 17; nêu rõ user, situation, job, barrier, consequence và điều chưa chứng minh. |
-| **GATE 2 — Meaningful options** | ✅ ĐẠT | 3 options chung 100% user, context, task và content fixture; khác nhau rõ rệt trên trục phân chia quyền hạn (Act vs Ask vs Don't Act). |
-| **GATE 3 — Human control** | ✅ ĐẠT | Cả 3 options đều có điểm hiển thị Evidence, mức độ tự tin, và cơ chế kiểm soát / phục hồi rõ ràng khi AI làm sai. |
+| **GATE 1 — Evidence continuity** | ĐẠT | Hypothesis Problem bám sát 3 Practice Notes Day 17; nêu rõ user, situation, job, barrier, consequence và điều chưa chứng minh. |
+| **GATE 2 — Meaningful options** | ĐẠT | 3 options chung 100% user, context, task và content fixture; khác nhau rõ rệt trên trục phân chia quyền hạn (Act vs Ask vs Don't Act). |
+| **GATE 3 — Human control** | ĐẠT | Cả 3 options đều có điểm hiển thị Evidence, mức độ tự tin, và cơ chế kiểm soát / phục hồi rõ ràng khi AI làm sai. |
 
 ---
 *Tài liệu này là căn cứ thiết kế chính thức của Team Moi để triển khai 3 Micro-prototypes trong Chặng 4.*

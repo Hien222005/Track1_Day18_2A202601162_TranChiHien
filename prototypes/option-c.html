@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option C — Bookmark nhanh 1 chạm</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <a href="index.html" class="btn-back">← Quay về trang chính</a>
+        <span class="option-badge option-c">📌 Option C — Bookmark nhanh (Don't Act)</span>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="container">
+
+        <!-- ========== STATE 1: Lecture + Bookmark ========== -->
+        <div id="state-lecture" class="state active">
+          <div class="info-banner info-orange">
+            <span class="info-banner-icon">📌</span>
+            <div>
+              <strong>Bấm nút Bookmark bên dưới</strong> (hoặc phím <kbd
+                style="background:#FED7AA; padding:2px 6px; border-radius:4px; font-weight:700;">B</kbd>) để ghim ngay
+              mốc video quan trọng.
+              Hệ thống lưu chính xác vị trí và slide — không có AI can thiệp hay diễn giải.
+            </div>
+          </div>
+
+          <!-- Video Player -->
+          <div class="video-player">
+            <div class="video-slide-area" id="slide-area">
+              <span class="slide-label" id="slide-label">Slide 1 / 4</span>
+              <div id="slide-1" class="slide-view">
+                <h2 class="slide-title">Bài 3: Phân tích Cấu trúc Chi phí Doanh nghiệp</h2>
+                <div class="slide-content">
+                  <p>📚 Nội dung bài học hôm nay:</p>
+                  <p style="margin-top:12px">• Phân biệt <strong>chi phí cố định</strong> và <strong>chi phí biến
+                      đổi</strong></p>
+                  <p>• Tính <strong>điểm hoà vốn (Break-even Point)</strong></p>
+                  <p>• Ứng dụng <strong>biên lợi nhuận gộp</strong> trong quyết định kinh doanh</p>
+                </div>
+              </div>
+              <div id="slide-2" class="slide-view" style="display:none">
+                <h2 class="slide-title">Chi phí Cố định vs Chi phí Biến đổi</h2>
+                <div class="slide-content">
+                  <p><strong>Chi phí cố định (Fixed Costs):</strong> Không thay đổi theo sản lượng</p>
+                  <p style="margin-top:8px">→ Tiền thuê mặt bằng, lương nhân viên cố định, khấu hao thiết bị</p>
+                  <p style="margin-top:16px"><strong>Chi phí biến đổi (Variable Costs):</strong> Tăng/giảm theo sản
+                    lượng</p>
+                  <p style="margin-top:8px">→ Nguyên vật liệu, hoa hồng bán hàng, chi phí vận chuyển</p>
+                  <p style="margin-top:16px; color: #60A5FA;">⚠️ Sai lầm phổ biến: Nhầm lẫn giữa chi phí "nhỏ" với chi
+                    phí "biến đổi"</p>
+                </div>
+              </div>
+              <div id="slide-3" class="slide-view" style="display:none">
+                <h2 class="slide-title">Điểm Hoà vốn (Break-even Point)</h2>
+                <div class="slide-content">
+                  <p>Điểm tại đó tổng doanh thu bằng tổng chi phí → Lợi nhuận = 0</p>
+                  <div class="formula">
+                    BEP = Chi phí cố định ÷ (Giá bán − Chi phí biến đổi/đơn vị)
+                  </div>
+                  <p style="margin-top:12px"><strong>Ý nghĩa:</strong> Doanh nghiệp cần bán ít nhất bao nhiêu đơn vị để
+                    không lỗ</p>
+                  <p style="margin-top:8px; color: #60A5FA;">→ BEP thấp = rủi ro thấp hơn khi mới khởi nghiệp</p>
+                </div>
+              </div>
+              <div id="slide-4" class="slide-view" style="display:none">
+                <h2 class="slide-title">Case Study: Quán Cafe Startup</h2>
+                <div class="slide-content">
+                  <p><strong>Dữ kiện:</strong></p>
+                  <p>• Thuê mặt bằng + lương: <strong>30 triệu/tháng</strong> (cố định)</p>
+                  <p>• Chi phí 1 ly cafe: <strong>15.000đ</strong> (biến đổi)</p>
+                  <p>• Giá bán 1 ly: <strong>45.000đ</strong></p>
+                  <div class="formula">
+                    BEP = 30.000.000 ÷ (45.000 − 15.000) = 1.000 ly/tháng
+                  </div>
+                  <p style="margin-top:12px; color: #60A5FA;">→ Cần bán ít nhất 1.000 ly/tháng (~33 ly/ngày) mới hoà vốn
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="video-controls">
+              <button class="btn-play" id="btn-play" onclick="nextSlide()">▶</button>
+              <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+              <span class="video-time" id="video-time">0:00 / 18:00</span>
+            </div>
+          </div>
+
+          <!-- Big Bookmark Button -->
+          <button class="btn-bookmark-big" id="btn-bookmark" onclick="addBookmark()">
+            📌 Bookmark mốc này
+            <span class="shortcut-hint">Phím B</span>
+          </button>
+
+          <!-- Bookmark List Panel -->
+          <div class="bookmark-panel">
+            <div class="bookmark-panel-header">
+              <span class="bookmark-panel-title">📋 Danh sách Bookmark <span class="highlight-count"
+                  id="bm-count">0</span></span>
+            </div>
+            <ul class="bookmark-list" id="bookmark-list">
+              <li class="bookmark-empty" id="bm-empty">
+                Chưa có bookmark nào. Hãy bấm nút 📌 hoặc phím <strong>B</strong> khi gặp nội dung quan trọng.
+              </li>
+            </ul>
+          </div>
+
+          <!-- End Lesson -->
+          <button class="btn btn-primary btn-lg btn-block mt-24" onclick="endLesson()" id="btn-end-lesson" disabled>
+            Kết thúc bài học → Xem lại các mốc đã ghim
+          </button>
+          <p class="text-center text-muted text-sm mt-16">Hãy xem các slide và ghim bookmark trước khi kết thúc</p>
+        </div>
+
+        <!-- ========== STATE 2: Review Bookmarks ========== -->
+        <div id="state-review" class="state">
+          <div class="info-banner info-green animate-in">
+            <span class="info-banner-icon">✅</span>
+            <div><strong>Bài học đã kết thúc.</strong> Dưới đây là các mốc bạn đã bookmark. Bạn có thể gán nhãn, sắp xếp
+              hoặc xoá.</div>
+          </div>
+
+          <div class="bookmark-panel animate-in delay-1">
+            <div class="bookmark-panel-header">
+              <span class="bookmark-panel-title">📋 Tài liệu ôn tập — <span id="review-count">0</span> mốc đã
+                ghim</span>
+            </div>
+            <ul class="bookmark-list" id="review-bookmark-list">
+            </ul>
+          </div>
+
+          <div class="btn-group mt-32 animate-in delay-2" style="justify-content:center">
+            <a href="index.html" class="btn btn-primary btn-lg">← Quay về chọn phương án khác</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="proto-footer">
+      <div class="container">
+        <p>Option C — Bookmark nhanh 1 chạm (Don't Act) · Team Moi · Track 1 Day 18</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // --- Slide Data ---
+    let currentSlide = 1;
+    const totalSlides = 4;
+    const slideTimestamps = ['0:00', '4:15', '9:00', '13:00'];
+    const slideNames = [
+      'Giới thiệu nội dung bài học',
+      'Chi phí Cố định vs Biến đổi',
+      'Điểm hoà vốn (Break-even Point)',
+      'Case Study: Quán Cafe Startup'
+    ];
+    const slidePreviews = [
+      'Phân biệt chi phí cố định/biến đổi, tính điểm hoà vốn, biên lợi nhuận gộp',
+      'Fixed Costs không đổi theo sản lượng; Variable Costs tăng giảm theo sản phẩm',
+      'BEP = Chi phí cố định ÷ (Giá bán − Chi phí biến đổi/đơn vị)',
+      'Thuê 30 triệu + 15.000đ/ly → cần 1.000 ly/tháng để hoà vốn'
+    ];
+
+    const bookmarks = [];
+
+    // --- Slide Navigation ---
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        document.getElementById('slide-' + currentSlide).style.display = 'none';
+        currentSlide++;
+        document.getElementById('slide-' + currentSlide).style.display = '';
+        document.getElementById('slide-label').textContent = 'Slide ' + currentSlide + ' / ' + totalSlides;
+        document.getElementById('progress-fill').style.width = ((currentSlide / totalSlides) * 100) + '%';
+        const times = ['4:15', '9:00', '13:00', '18:00'];
+        document.getElementById('video-time').textContent = times[currentSlide - 1] + ' / 18:00';
+        if (currentSlide === totalSlides) {
+          document.getElementById('btn-play').textContent = '⏹';
+          document.getElementById('btn-end-lesson').disabled = false;
+        }
+      }
+    }
+
+    // --- Bookmark ---
+    function addBookmark() {
+      const timestamp = slideTimestamps[currentSlide - 1];
+      const name = slideNames[currentSlide - 1];
+      const preview = slidePreviews[currentSlide - 1];
+
+      bookmarks.push({ timestamp, name, preview, slide: currentSlide });
+
+      // Update count
+      document.getElementById('bm-count').textContent = bookmarks.length;
+      document.getElementById('btn-end-lesson').disabled = false;
+
+      // Remove empty state
+      const empty = document.getElementById('bm-empty');
+      if (empty) empty.remove();
+
+      // Add to list
+      const list = document.getElementById('bookmark-list');
+      const li = document.createElement('li');
+      li.className = 'bookmark-item animate-in';
+      li.id = 'bm-item-' + bookmarks.length;
+      li.innerHTML = `
+        <span class="bookmark-time">${timestamp}</span>
+        <div class="bookmark-content">
+          <div class="bookmark-slide-name">Slide ${currentSlide}: ${name}</div>
+          <div class="bookmark-preview">${preview}</div>
+        </div>
+        <button class="bookmark-delete" onclick="deleteBookmark(${bookmarks.length})" title="Xoá bookmark">✕</button>
+      `;
+      list.appendChild(li);
+
+      // Button feedback
+      const btn = document.getElementById('btn-bookmark');
+      btn.style.background = '#FFEDD5';
+      btn.textContent = '✓ Đã ghim — Slide ' + currentSlide;
+      setTimeout(() => {
+        btn.style.background = '';
+        btn.innerHTML = '📌 Bookmark mốc này <span class="shortcut-hint">Phím B</span>';
+      }, 1200);
+    }
+
+    function deleteBookmark(n) {
+      const item = document.getElementById('bm-item-' + n);
+      if (item) {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(20px)';
+        setTimeout(() => item.remove(), 300);
+      }
+    }
+
+    // --- Keyboard Shortcut ---
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'b' || e.key === 'B') {
+        const lectureState = document.getElementById('state-lecture');
+        if (lectureState.classList.contains('active')) {
+          addBookmark();
+        }
+      }
+    });
+
+    // --- End Lesson ---
+    function endLesson() {
+      document.querySelectorAll('.state').forEach(s => s.classList.remove('active'));
+      document.getElementById('state-review').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Populate review list
+      const reviewList = document.getElementById('review-bookmark-list');
+      document.getElementById('review-count').textContent = bookmarks.length;
+
+      if (bookmarks.length === 0) {
+        reviewList.innerHTML = '<li class="bookmark-empty">Không có bookmark nào được ghim.</li>';
+        return;
+      }
+
+      reviewList.innerHTML = '';
+      bookmarks.forEach((bm, i) => {
+        const li = document.createElement('li');
+        li.className = 'bookmark-item animate-in';
+        li.style.animationDelay = (i * 0.1) + 's';
+        li.style.opacity = '0';
+        li.innerHTML = `
+          <span class="bookmark-time">${bm.timestamp}</span>
+          <div class="bookmark-content">
+            <div class="bookmark-slide-name">Slide ${bm.slide}: ${bm.name}</div>
+            <div class="bookmark-preview">${bm.preview}</div>
+          </div>
+        `;
+        reviewList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+
+</html>
