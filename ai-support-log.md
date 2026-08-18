@@ -1,7 +1,5 @@
 # AI Support Log — Nhật ký sử dụng AI cá nhân
 
-> **Học viên:** Hồ Lương An  
-> **Mã học viên:** 2A202601332  
 > **Nhóm:** Team Moi  
 > **Case:** Case B — AI Notes: Personal Learning Notes  
 
