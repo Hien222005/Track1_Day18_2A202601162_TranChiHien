@@ -67,6 +67,8 @@ _(Chưa thực hiện: điền sau Chặng 6. Gồm: observation từ phiên b�
 
 ## 6. AI Support Log
 
-_(Điền sau khi hoàn tất: xem `ai-support-log.md`. Tối thiểu trả lời: AI đã giúp gì, sai/hời hợt ở đâu, bạn tự sửa/quyết định lại điều gì.)_
+_(Xem chi tiết tại [ai-support-log.md](ai-support-log.md))_
 
-**Sơ bộ cho phần Hypothesis Problem (mục 2):** AI được dùng để tổng hợp 3 Practice Notes thành một câu Hypothesis Problem theo đúng format `Khi [situation], [user] gặp khó khăn... vì [barrier], dẫn đến [consequence]`, và rà soát để câu này không nói quá evidence thật. Toàn bộ quote và facts giữ nguyên từ notes.md gốc của ba thành viên, không có quote nào do AI tạo thêm.
+- **AI đã giúp tôi ở đâu:** Soạn thảo câu Hypothesis Problem theo đúng format chuẩn; sinh bộ dữ liệu content fixture cho bài giảng mẫu (*Bài 3 — Cấu trúc chi phí*) cùng các mẫu canned output cho Smart Note và Key Takeaways; hỗ trợ viết nhanh khung mã nguồn HTML/CSS/JavaScript cho 3 micro-prototypes.
+- **AI sai, hời hợt hoặc làm các options giống nhau ở đâu:** Đề xuất thêm các tính năng phụ rườm rà (chatbot, sinh câu hỏi trắc nghiệm) làm loãng bài toán chính; tự dựng trang landing page chọn lựa khiến tester mất đi trải nghiệm tự nhiên; canned output ban đầu quá hoàn hảo, thiếu đi các điểm không chắc chắn (*uncertainty*) để kiểm tra phản ứng của người dùng.
+- **Tôi đã tự sửa hoặc quyết định lại điều gì:** Ép chặt phạm vi 3 mức độ tự chủ (Act / Ask / Don't Act) xoay quanh hành vi ghi nhận kiến thức khi nghe giảng; xoá bỏ giao diện chọn phương án trung gian để dùng chung một luồng bài giảng mẫu duy nhất; chủ động thêm cờ `[AI diễn giải]` và các nút phục hồi (*Recovery*) để người dùng luôn nắm quyền kiểm soát; rà soát loại bỏ toàn bộ văn phong khuôn mẫu và icon trang trí thừa.
