@@ -13,9 +13,9 @@
 
 | STT | Họ và tên | MHV | Vai trò Day 18 |
 |:---:|---|:---:|---|
-| 1 | Vũ Nguyễn Bảo Sơn | 2A202601116 | _(điền sau Chặng 4: option chịu trách nhiệm chính)_ |
-| 2 | Hồ Lương An | 2A202601332 | _(điền sau Chặng 4)_ |
-| 3 | Trần Chí Hiển | 2A202601162 | _(điền sau Chặng 4)_ |
+| 1 | Vũ Nguyễn Bảo Sơn | 2A202601116 | Chịu trách nhiệm chính Option C: Bookmark nhanh, không AI |
+| 2 | Hồ Lương An | 2A202601332 | Chịu trách nhiệm chính Option B: AI gợi ý, user xác nhận |
+| 3 | Trần Chí Hiển | 2A202601162 | Chịu trách nhiệm chính Option A: AI Notes tự tổng hợp |
 
 ---
 
