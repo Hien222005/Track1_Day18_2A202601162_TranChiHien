@@ -61,7 +61,10 @@ _(Chưa thực hiện: điền sau khi build prototype và test. Ghi cụ thể:
 
 ## 5. Prototype Feedback
 
-_(Chưa thực hiện: điền sau Chặng 6. Gồm: observation từ phiên bạn facilitate: xem `prototype-feedback-note.md`; ba-feedback synthesis: xem `group-feedback-synthesis.md`; một Next Change; một Still Unproven.)_
+- **Observation từ phiên tôi facilitate:** Tester chọn **Option A**, đánh giá đây là phương án nhanh và thuận lợi nhất để giải quyết đúng vấn đề mất liền mạch khi ghi chú trong lúc học; trade-off chấp nhận là chất lượng note do AI gen có thể bị ảnh hưởng khi thiếu context/ngữ cảnh lúc đó. Chi tiết đầy đủ: xem [prototype-feedback-note.md](prototype-feedback-note.md).
+- **Tổng hợp ba feedback (Hiển, An, Sơn):** xem [group-feedback-synthesis.md](group-feedback-synthesis.md).
+- **Một Next Change:** Phát triển tiếp theo hướng Option A — giữ cơ chế AI tự tổng hợp Smart Note sau bài giảng kèm trích dẫn thời gian/nguồn, đưa tính năng bôi đen chữ trên slide từ Option C làm đầu vào cho AI ở Option A, và bổ sung onboarding/tooltip cho các tính năng tester chưa hiểu rõ ngay từ đầu.
+- **Một Still Unproven:** Chưa rõ chất lượng/độ chính xác của Smart Note do AI tổng hợp ở Option A có đủ tốt khi gặp bài giảng dài, nhiều thuật ngữ chuyên môn hoặc thiếu ngữ cảnh hay không.
 
 ---
 
